@@ -1,9 +1,24 @@
-var express = require('express');
-var router = express.Router();
+const utils = require('./utils');
+const express = require('express');
+const router = express.Router();
 
-/* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
+router.all('/*', function (req, res, next) {
+
+  utils.log(req);
+
+  next()
 });
+
+
+router.get('/*', function (req, res, next) {
+  console.log('GET')
+  res.json({response: 'GET!'});
+});
+
+router.post('/*', function (req, res, next) {
+  console.log('POST')
+  res.json({response: 'POST!'});
+});
+
 
 module.exports = router;
