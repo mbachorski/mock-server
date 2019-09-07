@@ -4,9 +4,12 @@
  * Module dependencies.
  */
 
-var app = require('../app');
-var debug = require('debug')('mock-server:server');
-var http = require('http');
+
+import app from '../app';
+import debugLib from 'debug';
+import http from 'http';
+
+const debug = debugLib('mock-server:server');
 
 /**
  * Get port from environment and store in Express.

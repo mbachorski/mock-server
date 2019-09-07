@@ -24,5 +24,16 @@ module.exports = {
 
     // headers
     console.log('HEADERS: ', req.headers)
+  },
+
+  simplifyRequest: function (req) {
+    return {
+      ip: req._remoteAddress,
+      pathname: req._parsedOriginalUrl.pathname,
+      query: url.parse(req.url, true).query,
+      method: req.method,
+      body: req.body,
+      headers: req.headers
+    }
   }
 };
