@@ -28,7 +28,7 @@ module.exports = {
 
   simplifyRequest: function (req) {
     return {
-      ip: req._remoteAddress,
+      ip: req._remoteAddress.replace("::ffff:", ""), // https://stackoverflow.com/a/33790357
       pathname: req._parsedOriginalUrl.pathname,
       query: url.parse(req.url, true).query,
       method: req.method,

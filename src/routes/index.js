@@ -1,16 +1,15 @@
-import utils from './utils';
-import {matchesConfig} from '../../config/matcher';
 import express from 'express';
-
-import {sampleConfig} from '../../config/sampleConfig';
+import utils from './utils';
+import {matchesConfig} from '../config/matcher';
+import {getSampleConfig} from '../config/sampleConfig';
 
 const router = express.Router();
 
 router.all('/*', function (req, res, next) {
 
-  utils.log(req);
+  // utils.log(req);
 
-  const matches = matchesConfig(req, sampleConfig)
+  const matches = matchesConfig(req, getSampleConfig())
   console.log('is match? ', matches)
 
   next()

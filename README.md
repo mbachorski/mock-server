@@ -1,5 +1,5 @@
 Run with
-``` yarn app.js```
+```npm run dev```
 
 Kill server with 
 ```ctrl + c```
